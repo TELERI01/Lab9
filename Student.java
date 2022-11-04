@@ -9,6 +9,12 @@ public class Student {
 	private double expected_gpa;
 	private int time_learning_java;
 	
+	public Student() {
+		this.name="";
+		this.expected_gpa=0;
+		this.time_learning_java=0;
+	}
+	
 	Student(String name, int age, String major, String hobby, double expected_gpa, int time_learning_java ){
 		this.name=name;
 		this.age=age;
@@ -52,20 +58,36 @@ public class Student {
 	public void setJava(int time_learning_java) {
 		this.time_learning_java=time_learning_java;
 	}
+	public void setGPA(double expected_gpa) {
+		this.expected_gpa=expected_gpa;
+	}
 	
+	
+	public String HonorsEligible() {
+		String Honors;
+		if(expected_gpa>=3.5) {
+			Honors="true";
+		}
+		else {
+			Honors="false";
+		}
+		return Honors;
+	}
 	
 	public static void main(String[] args) {
-		Student myfirstStudent = new Student("Tyler",19 ,"CS" ,"Video Game Developement" , 3.9, 12);
+		Student myfirstStudent = new Student("Tyler",19 ,"CS" ,"Video Game Developement" , 3.9 , 12);
 		
 		System.out.println("Student Info:\nName: "+ myfirstStudent.name+ "\nAge: " + myfirstStudent.age + "\nMajor: "+ 
 		myfirstStudent.major+ "\nHobby: " + myfirstStudent.hobby+ "\nJava: " + myfirstStudent.time_learning_java);
 		
+		System.out.println("Honors Eligible: " + myfirstStudent.HonorsEligible());
+		
+		myfirstStudent.setGPA(3.5);
 		myfirstStudent.setName("Gibbie");
 		System.out.println("Name: " + myfirstStudent.getName());
-		
-		
-		
+		System.out.println("Honors Eligible: " + myfirstStudent.HonorsEligible());
 		
 	}
+	
 
 }
